@@ -1,64 +1,5 @@
 
 'use strict';
-    const posts=[
-        {
-        post:'About me',
-        idAuthor:'01',
-        comments:['001','002']
-
-    },
-    {
-        post:'About me01',
-        idAuthor:'02',
-        comments:['001','002']
-
-    },{
-        post:'About me02',
-        idAuthor:'03',
-        comments:['001','002']
-
-    }];
-const comments=[
-    {
-        namePost:'About me',
-        author:'Nikita',
-        text:'Cool!!',
-        status:true
-
-    },
-    {
-        namePost:'About me',
-        author:'John',
-        text:'Yes',
-        status:true
-
-    },
-    {
-        namePost:'About me02',
-        author:'Liza',
-        text:'Lol!!!!',
-        status:true
-
-    }];
-const users=[
-    {
-        id:'01',
-        name:'Nikita',
-        avatar:'http://localhost/img/img1.jpg'
-
-    },
-    {
-        id:'02',
-        name:'John',
-        avatar:'http://localhost/img/img2.jpg'
-
-    },
-    {
-        id:'03',
-        name:'Liza',
-        avatar:'http://localhost/img/img3.jpg'
-
-    }];
 button.addEventListener("click", CollectionPosts);
 function CollectionPosts() {
     //string convertation
@@ -67,22 +8,33 @@ function CollectionPosts() {
     [].forEach.call(x, function (el) {
         arr.push(eval(el.value))
     });
-    // console.log(arr);
+
     var flattened=arr.reduce(function (a,b) {
         return a.concat(b)
     });
-    // console.log(flattened)
-    var postsALl=flattened.reduce(function (previousValue, currentValue, index, flattened){
-        console.log(previousValue);
-        console.log(currentValue);
+
+    [].forEach.call(flattened, function (el) {
+        var a_values;
+        var b_values;
+
+        for(var i=1;i<flattened.length;i++){
+             a_values = Object.keys(el).map(function(key){
+                return el[key];
+            });
+            b_values = Object.keys(flattened[i]).map(function(key){
+                return flattened[i][key];
+            });
+        }
+
+        for (var a_key in a_values) {
+           
+
+            if (a_values[a_key]==b_values[a_key]) {
+                console.log(a_values[a_key])
+            }
+        }
+
     });
+
+
 }
-
-
-
-
-
-// function handler2(x) {
-//     var postsAll = new CollectionPosts(x);
-//
-// }

@@ -12,41 +12,22 @@ function CollectionPosts() {
     var flattened=arr.reduce(function (a,b) {
         return a.concat(b)
     });
-    console.log(flattened);
-    [].forEach.call(flattened, function (el) {
-        var a_values;
-        var b_values;
 
+    [].forEach.call(flattened, function (el) {
         for(var i=1;i<flattened.length;i++){
               Object.keys(el).map(function(key) {
                   //this each all elements with this
-                  console.log('-------------');
                   console.log(el[key]);
-                  console.log('-------------');
-                  [].forEach.call(flattened, function (el) {
+                  console.log('------------');
 
-                          Object.keys(el).map(function(key) {
-                              //this each all elements with this
-                              console.log(el[key]);
-                          })
-
-
+                  [].forEach.call(flattened, function (elem) {
+                            for(var p in elem){
+                                if(el[key]=elem[p]){
+                                    console.log(el[key])
+                                }
+                            }
                   });
               })
-
-
         }
-        // console.log(a_values);
-        // console.log(b_values);
-        for (var a_key in a_values) {
-           
-
-            if (a_values[a_key]==b_values[a_key]) {
-                // console.log(a_values[a_key])
-            }
-        }
-
     });
-
-
 }

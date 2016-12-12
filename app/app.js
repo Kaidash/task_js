@@ -17,9 +17,9 @@ function CollectionPosts() {
 
         Object.keys(flattened[i]).map(function(key) {
             //this each all elements with this
-            console.log('---------------------------');
-            console.log(flattened[i][key]);
-            console.log('---------------------------');
+            // console.log('---------------------------');
+            // console.log(flattened[i][key]);
+            // console.log('---------------------------');
 
             function condition(value, index, array) {
                 var result;
@@ -38,7 +38,9 @@ function CollectionPosts() {
 
                 Object.keys(elem).map(function(k) {
                     //this each all elements with this
-                    console.log(elem[k])
+                    if(elem[k]==flattened[i][key]){
+                        flattened[i][k]=elem;
+                    }
                 })
 
 
@@ -47,6 +49,6 @@ function CollectionPosts() {
         })
     }
 
-
+    console.log(flattened)
 
 }

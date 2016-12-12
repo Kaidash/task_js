@@ -20,18 +20,38 @@ function CollectionPosts() {
         for(var i=1;i<flattened.length;i++){
               Object.keys(el).map(function(key) {
                   //this each all elements with this
+                  console.log('-------');
                   console.log(el[key]);
+                  console.log('-------');
+                  var count=0;
+
+                  for(var j=0;j<flattened.length;j++){
+                      if(count==0){
+                          count++;
+                          console.log(key);
+                              // [].forEach.call(flattened.slice(j+1,flattened.length), function (elem) {
+                              //
+                              //     Object.keys(elem).map(function(k) {
+                              //         //this each all elements with this
+                              //         console.log(elem[k])
+                              //     })
+                              //
+                              //
+                              // });
+
+                      }
+                  }
                   // [].forEach.call(flattened.splice(i,i+1), function (elem) {
-                  [].forEach.call(flattened.splice(i,i+1), function (elem) {
-
-                      Object.keys(elem).map(function(k) {
-                              //this each all elements with this
-                              console.log('///////////////////');
-                              console.log(elem[k]);
-                          })
-
-
-                  });
+                  // [].forEach.call(flattened.splice(i,i+1), function (elem) {
+                  //
+                  //     Object.keys(elem).map(function(k) {
+                  //             //this each all elements with this
+                  //             console.log('///////////////////');
+                  //             console.log(elem[k]);
+                  //         })
+                  //
+                  //
+                  // });
               })
 
 

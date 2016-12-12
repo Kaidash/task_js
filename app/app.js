@@ -12,51 +12,41 @@ function CollectionPosts() {
     var flattened=arr.reduce(function (a,b) {
         return a.concat(b)
     });
-    console.log(flattened);
-    [].forEach.call(flattened, function (el) {
-        var a_values;
-        var b_values;
 
-        for(var i=1;i<flattened.length;i++){
-              Object.keys(el).map(function(key) {
-                  //this each all elements with this
-                  console.log('-------');
-                  console.log(el[key]);
-                  console.log('-------');
-                  var count=0;
+    for(var i=0;i<flattened.length;i++){
 
-                  for(var j=0;j<flattened.length;j++){
-                      if(count==0){
-                          count++;
-                          console.log(key);
-                              // [].forEach.call(flattened.slice(j+1,flattened.length), function (elem) {
-                              //
-                              //     Object.keys(elem).map(function(k) {
-                              //         //this each all elements with this
-                              //         console.log(elem[k])
-                              //     })
-                              //
-                              //
-                              // });
+        Object.keys(flattened[i]).map(function(key) {
+            //this each all elements with this
+            console.log('---------------------------');
+            console.log(flattened[i][key]);
+            console.log('---------------------------');
 
-                      }
-                  }
-                  // [].forEach.call(flattened.splice(i,i+1), function (elem) {
-                  // [].forEach.call(flattened.splice(i,i+1), function (elem) {
-                  //
-                  //     Object.keys(elem).map(function(k) {
-                  //             //this each all elements with this
-                  //             console.log('///////////////////');
-                  //             console.log(elem[k]);
-                  //         })
-                  //
-                  //
-                  // });
-              })
+            function condition(value, index, array) {
+                var result;
+                if (index == i) {
+                    result = false;
+                }
+                else{
+                    result=true;
+                }
+                return result;
+            };
+            var arrayAfterFilter=flattened.filter(condition);
 
 
-        }
-    });
+            [].forEach.call(arrayAfterFilter, function (elem) {
+
+                Object.keys(elem).map(function(k) {
+                    //this each all elements with this
+                    console.log(elem[k])
+                })
+
+
+            });
+
+        })
+    }
+
 
 
 }
